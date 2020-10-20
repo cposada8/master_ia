@@ -1,0 +1,8 @@
+httpsdrive.google.comdrivefolders1LpBQ-arrn4xRvRoDyck9EpVMXviYPm_W
+
+
+Documentación oficial
+Python: https://docs.python.org/3/
+NumPy: https://docs.scipy.org/doc/
+pandas: https://pandas.pydata.org/index.html
+matplotlib: https://matplotlib.org/
