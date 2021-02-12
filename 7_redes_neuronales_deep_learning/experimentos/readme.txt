@@ -1,0 +1,1 @@
+Carpeta con experimentos propios para profundizar en el uso de las técnicas de deep learning
