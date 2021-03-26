@@ -1,0 +1,38 @@
+1804.043339 -> benchmark data and method for real-time people counting in cluttered scenes using depth sensors
+
+2. Suplementary information de otro
+
+
+
+3. Fiaschi2012, trabajo del 2012:
+contar objetos en imágenes o videoframes tiene muchas aplicaciones importantes para el mundo real como: inspección industrial, cytometría, topografía y vigilancia. 
+Trabajos recientes han mostrado que el problema de contar objetos puede ser resulto con igual o mejor accuracy sin realizar object detección previo o incluso segmentación. 
+Se puede hacer por medio de estimar una función de densidad.
+
+Mappea de density map a density map.
+
+
+
+lempitsky 2010: [8/10]
+explican que todo se reduce a estimar una función de densidad. Luego integrar esta sobre toda la imagen y se tendrá el número de objetos. 
+Se ahorran el difícil trabajo de detectar y segmentar. 
+explican en qué consiste este "Mapa de densidad"
+hablan de trabajo relacionado como:
+* contar por detección
+* contar por regresión
+* conteo por segmentación
+
+
+s41586-020 --> el de los árboles en áfrica (2020)
+
+sensors 20-06: (2020)
+habla de técnicas como yolo
+
+Xie 18: estima el mapa de densidad pero por medio de fully convolutional networks
+
+
+
+
+
+
+

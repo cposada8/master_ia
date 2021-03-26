@@ -1,0 +1,5 @@
+https://keras.io/examples/vision/oxford_pets_image_segmentation/
+https://github.com/zhixuhao/unet
+https://github.com/dwaithe/U-net-for-density-estimation
+
+https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/people-detection-pose-estimation-and-tracking/people-tracking-by-detection-and-people-detection-by-tracking
