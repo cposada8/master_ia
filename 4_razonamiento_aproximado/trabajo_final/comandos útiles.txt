@@ -1,0 +1,18 @@
+primero se cargan las bases de conocimiento y de hechos
+
+# el siguiente comando reinicia el clips
+(clear)
+(reset)
+(run 1)
+
+(plot-fuzzy-value t * 0 100 4)
+
+(maximum-defuzzify 4)
+(moment-defuzzify 4)
+
+
+(plot-fuzzy-value t "*.+" nil nil
+(create-fuzzy-value monto bajo)
+(create-fuzzy-value monto medio)
+(create-fuzzy-value monto alto)
+(create-fuzzy-value monto muy_alto))

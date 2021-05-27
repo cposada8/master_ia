@@ -1,0 +1,59 @@
+1.  ¿Cuales son las tres principales dificultades del DRL en conducción autónoma?
+
+* Definición de la función de recompensa
+* Transferencia del conocimiento de un ambiente de simulación a la realidad
+* Garantizar la seguridad del sistema y sus acciones
+
+
+2.  Enumera técnicas para cubrir dichas debilidades y explica cómo funciona cada una
+
+- Constrained Reinforcement Learning: con esta técnica, basada en markov decision process (MDP) se aumentan las restricciones lo que reduce el espacio de políticas posibles, haciendo más rápido y enfocado el entrenamiento.
+
+- GANs (generative adversarial netorks): entrenar a la vez una red que trata de imitar al humano y otra que trata de distinguir si las acciones provienen de un humano. Esta "competencia" hace que se tienda a una convergencia a acciones que un humano tomaría.
+
+- Behavioural Cloning: Se le pasan al auto las trayectorias que humanos hayan realizado para que el sistema aprenda. Esto implica que la mejor conducción posible será a lo sumo, tan buena como un humano y tendría que evaluar muchísimas trayectorias.
+
+3.  Tenemos que entrenar a un coche que debe aprender a cruzar una rotonda con cuatro salidas por la salida número dos. ¿Cómo definirías la función de recompensas? Asume que el coche solo tiene las acciones acelerar hacia delante, frenar o "coger la salida", esta última acción sólo puede tomarla si el coche está contiguo a una salida de la rotonda.
+:
+
+Función Entrenamiento()
+Acelera_adelante()
+Frena()
+Analizar_Si_esta_Cerca_a_Salida()
+Si Cerca_salida
+		tomar_salida()
+		Si Salida = 2
+			Forward = 1
+		Si no
+			Forward = -1
+		Fin si
+		Reset_recorrido ()
+		Entrenamiento()
+Si no
+   		Entrenamiento()
+finsi
+Fin funcion
+
+
+4.  Define el problema anterior como un POMDP:
+Un POMDP será una tupla M = < S, A , Z , O , R , P , y > en donde :
+
+S -> Frenado, en marcha
+A -> Acelerar_hacia_delante , frenar , tomar_salida
+P -> S x A x S -> [0,1]
+R -> Funcion de recompensas [-1,1]
+Z -> set de observaciones posibles
+O -> S x A -> Z 
+
+
+5.  Open AI gym tiene muchos entornos de terceros muy útiles como https://github.com/eleurent/highway-env . Sigue el tutorial en colab de Model-Based RL para el entorno de parking https://github.com/eleurent/highway-env/tree/master/scripts ¿Que ventajas y limitaciones observas en esta implementación de Model-based RL?
+
+Plantean el objetivo como un problema de control donde un agente conduce un auto y su meta es estacionarlo en un lugar determinado y con la orientación indicada.
+
+Al principio intentan con una aproximación model-free. Las simulaciones muestran que el vehículo es tan impreciso, que parece aleatorio, argumentando que tal vez model free no es la forma más adecuada de aboradar el problema
+
+Luego realizan prueabas con una aproximación model-based, guardando un conjunto de experiencias. 
+Los ajustes al modelo son por medio de descenso del gradiente estocástico y se observan unas buenas métricas de entrenamiento pues el training y el validation están entregando un valor muy similar. 
+Esto indica que el modelo es confiable pues no tiene problemas de bias ni variance.
+Como acto seguido deben encontrar un algoritmo que mejore la certeza, para lo cual usan CEM. 
+Se mencionan ciertas conclusiones referentes a tener mucho cuidado con la definición de la función de recompensas a utilizar pues dependiendo de esta elección el modelo podría tener comportamientos no deseados como diverger o esperar recompensas importantes o altas por medio de acciones peligrosas.
